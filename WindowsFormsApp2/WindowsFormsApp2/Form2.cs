@@ -21,5 +21,24 @@ namespace WindowsFormsApp2
         {
 
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserMessage_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void UserMessage_Focus(object sender, EventArgs e)
+        {
+            UserMessage.Text = "";
+        }
+
+        private void UserMessage_Focus2(object sender, EventArgs e)
+        {
+            UserMessage.Text = "Type your message here...";
+        }
     }
 }

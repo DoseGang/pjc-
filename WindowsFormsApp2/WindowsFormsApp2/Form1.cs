@@ -14,36 +14,39 @@ using System.IO;
 
 namespace WindowsFormsApp2
 {
-    public partial class Form1 : Form 
+    public partial class Form1 : Form
     {
         Session user = new Session();
-        IFormatter formatter = new BinaryFormatter();
-
+        
+        
+        
+        
         public Form1()
         {
             InitializeComponent();
-           
+            user = user.getUser();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            
             string UsernameTyped = textBox1.Text ;
             string PasswordTyped = textBox2.Text ;
-            Stream stream = new FileStream("C:\\Users\\Doseeee\\Desktop\\Accounts.txt", FileMode.Open, FileAccess.Read);
-            
-            user = (Session)formatter.Deserialize(stream);
 
-                Console.WriteLine(user.myuser + "......." + user.mypassword);
+            
             if (user.LoginUser(UsernameTyped, PasswordTyped) == true)
             {
                
                 Visible = false;
                 Form2 k = new Form2();
                 k.ShowDialog();
+                
             }
-
+            else
+            {
+                MessageBox.Show("User doesn't exist.");
+            }
             
-            stream.Close();
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -53,22 +56,22 @@ namespace WindowsFormsApp2
         {
 
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
            
-            user.createAccount(textBox1.Text, textBox2.Text);
+            if(user.createAccount(textBox1.Text, textBox2.Text)==false)
+            {
+                MessageBox.Show("Username already taken.");
+            };
+            user.getList();
             
-            Stream stream = new FileStream("C:\\Users\\Doseeee\\Desktop\\Accounts.txt", FileMode.Open, FileAccess.Write);
-            formatter.Serialize(stream, user);
-            stream.Close();
+          
+            
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 

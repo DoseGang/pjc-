@@ -39,9 +39,10 @@
             // Connect
             // 
             this.Connect.AccessibleName = "Connect";
-            this.Connect.Location = new System.Drawing.Point(219, 224);
+            this.Connect.Location = new System.Drawing.Point(292, 276);
+            this.Connect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Connect.Name = "Connect";
-            this.Connect.Size = new System.Drawing.Size(135, 35);
+            this.Connect.Size = new System.Drawing.Size(180, 43);
             this.Connect.TabIndex = 0;
             this.Connect.Text = "Connect";
             this.Connect.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             // NewUser
             // 
-            this.NewUser.Location = new System.Drawing.Point(420, 224);
+            this.NewUser.Location = new System.Drawing.Point(560, 276);
+            this.NewUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NewUser.Name = "NewUser";
-            this.NewUser.Size = new System.Drawing.Size(135, 35);
+            this.NewUser.Size = new System.Drawing.Size(180, 43);
             this.NewUser.TabIndex = 2;
             this.NewUser.Text = "New User";
             this.NewUser.UseVisualStyleBackColor = true;
@@ -59,26 +61,29 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(314, 76);
+            this.textBox1.Location = new System.Drawing.Point(419, 94);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
+            this.textBox1.Size = new System.Drawing.Size(193, 22);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(314, 146);
+            this.textBox2.Location = new System.Drawing.Point(419, 180);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
+            this.textBox2.Size = new System.Drawing.Size(193, 22);
             this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Username
             // 
             this.Username.AutoSize = true;
-            this.Username.Location = new System.Drawing.Point(216, 79);
+            this.Username.Location = new System.Drawing.Point(288, 97);
+            this.Username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(55, 13);
+            this.Username.Size = new System.Drawing.Size(73, 17);
             this.Username.TabIndex = 5;
             this.Username.Text = "Username";
             this.Username.Click += new System.EventHandler(this.label1_Click);
@@ -86,24 +91,26 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(216, 153);
+            this.Password.Location = new System.Drawing.Point(288, 188);
+            this.Password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(53, 13);
+            this.Password.Size = new System.Drawing.Size(69, 17);
             this.Password.TabIndex = 6;
             this.Password.Text = "Password";
             this.Password.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.NewUser);
             this.Controls.Add(this.Connect);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Login";
             this.ResumeLayout(false);
