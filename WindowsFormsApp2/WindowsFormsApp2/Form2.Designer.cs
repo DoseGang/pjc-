@@ -42,10 +42,12 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(337, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(55, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Logged In";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Logged In\r\n\r\n";
+            this.label1.Click += new System.EventHandler(this.label1_);
+            this.label1.Enter += new System.EventHandler(this.label1_);
+            this.label1.Leave += new System.EventHandler(this.label1_);
             // 
             // UserChat
             // 
@@ -54,8 +56,10 @@
             this.UserChat.Margin = new System.Windows.Forms.Padding(2);
             this.UserChat.Multiline = true;
             this.UserChat.Name = "UserChat";
+            this.UserChat.ReadOnly = true;
             this.UserChat.Size = new System.Drawing.Size(440, 308);
             this.UserChat.TabIndex = 1;
+            this.UserChat.TextChanged += new System.EventHandler(this.UserChat_TextChanged);
             // 
             // UserMessage
             // 
@@ -99,6 +103,7 @@
             this.listBox1.Size = new System.Drawing.Size(272, 342);
             this.listBox1.TabIndex = 4;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // Add
             // 
@@ -139,6 +144,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Activated += new System.EventHandler(this.label1_);
             this.ResumeLayout(false);
             this.PerformLayout();
 

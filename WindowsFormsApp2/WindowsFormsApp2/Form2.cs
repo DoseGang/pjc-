@@ -12,21 +12,22 @@ namespace WindowsFormsApp2
 {
     public partial class Form2 : Form
     {
+        public string MyUser { get; set; }
         public Form2()
         {
             InitializeComponent();
+            
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_(object sender, EventArgs e)
         {
-
+            this.Text = "Hello " + MyUser;
         }
-
+        
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
-
         private void UserMessage_TextChanged(object sender, EventArgs e)
         {
             
@@ -35,7 +36,7 @@ namespace WindowsFormsApp2
         {
             UserMessage.Text = "";
         }
-
+        
         private void UserMessage_Focus2(object sender, EventArgs e)
         {
             UserMessage.Text = "Type your message here...";
@@ -44,8 +45,11 @@ namespace WindowsFormsApp2
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add(addTopic.Text);
-            addTopic.Text = "Add/Remove topic.";
+            addTopic.Text = "Add Topic";
         }
+
+        
+
         private void button2_(object sender, EventArgs e)
         {
 
@@ -57,6 +61,17 @@ namespace WindowsFormsApp2
         }
 
         private void addTopic_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string curItem = listBox1.SelectedItem.ToString();
+            label1.Text = curItem;
+        }
+
+        private void UserChat_TextChanged(object sender, EventArgs e)
         {
 
         }
