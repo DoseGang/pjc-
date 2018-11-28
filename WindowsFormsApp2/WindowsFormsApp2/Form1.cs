@@ -40,7 +40,6 @@ namespace WindowsFormsApp2
                 Visible = false;
                 Form2 k = new Form2();
                 k.MyUser = UsernameTyped;
-                MessageBox.Show(k.MyUser);
                 k.ShowDialog();
                 
             }

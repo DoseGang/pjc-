@@ -12,6 +12,7 @@ namespace WindowsFormsApp2
 {
     public partial class Form2 : Form
     {
+        private string currentTopic = null;
         public string MyUser { get; set; }
         public Form2()
         {
@@ -68,7 +69,8 @@ namespace WindowsFormsApp2
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string curItem = listBox1.SelectedItem.ToString();
-            label1.Text = curItem;
+            label1.Text = "Topic "+curItem;
+            currentTopic = curItem;
         }
 
         private void UserChat_TextChanged(object sender, EventArgs e)
