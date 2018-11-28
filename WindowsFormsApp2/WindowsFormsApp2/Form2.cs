@@ -40,5 +40,25 @@ namespace WindowsFormsApp2
         {
             UserMessage.Text = "Type your message here...";
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(addTopic.Text);
+            addTopic.Text = "Add/Remove topic.";
+        }
+        private void button2_(object sender, EventArgs e)
+        {
+
+        }
+
+        private void   addTopic_(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addTopic_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             user = user.getUser();
+            user.getList();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -64,6 +65,7 @@ namespace WindowsFormsApp2
                 MessageBox.Show("Username already taken.");
             };
             user.getList();
+            user.updateUsers(user);
             
           
             

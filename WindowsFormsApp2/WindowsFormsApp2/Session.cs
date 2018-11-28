@@ -18,15 +18,23 @@ namespace WindowsFormsApp2
         List<Tuple<string, string>> Users = new List<Tuple<string, string>>();
         public Session getUser()
         {
-            Stream stream = new FileStream("C:\\Users\\Dose\\Desktop\\Accounts.txt", FileMode.Open, FileAccess.Read);
-            Session user = (Session)formatter.Deserialize(stream);
+            Stream stream = new FileStream("C:\\Users\\Doseeee\\Desktop\\Accounts.txt", FileMode.Open, FileAccess.Read);
+            Session user= new Session();
+            if (stream.Length != 0)
+            {
+                user = (Session)formatter.Deserialize(stream);
+                stream.Close();
+                return user;
+            }
             stream.Close();
             return user;
+            
         }
         public void updateUsers(Session user)
         {
+       
             Users = Users.Distinct().ToList();
-            Stream stream = new FileStream("C:\\Users\\Dose\\Desktop\\Accounts.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            Stream stream = new FileStream("C:\\Users\\Doseeee\\Desktop\\Accounts.txt", FileMode.OpenOrCreate, FileAccess.Write);
             formatter.Serialize(stream, user);
             stream.Close();
         }
