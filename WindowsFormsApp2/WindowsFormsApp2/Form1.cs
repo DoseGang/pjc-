@@ -37,10 +37,11 @@ namespace WindowsFormsApp2
             if (user.LoginUser(UsernameTyped, PasswordTyped) == true)
             {
                
-                Visible = false;
+                
                 Form2 k = new Form2();
                 k.MyUser = UsernameTyped;
                 k.ShowDialog();
+                
                 
             }
             else
@@ -78,6 +79,12 @@ namespace WindowsFormsApp2
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //Handle event here
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

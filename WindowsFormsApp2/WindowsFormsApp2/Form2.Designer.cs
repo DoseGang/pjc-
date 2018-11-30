@@ -35,6 +35,8 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.Add = new System.Windows.Forms.Button();
             this.addTopic = new System.Windows.Forms.TextBox();
+            this.IPAdress = new System.Windows.Forms.TextBox();
+            this.IP = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +73,6 @@
             this.UserMessage.Name = "UserMessage";
             this.UserMessage.Size = new System.Drawing.Size(439, 43);
             this.UserMessage.TabIndex = 2;
-            this.UserMessage.Text = "Type your message here...";
             this.UserMessage.TextChanged += new System.EventHandler(this.UserMessage_TextChanged);
             this.UserMessage.Enter += new System.EventHandler(this.UserMessage_Focus);
             this.UserMessage.Leave += new System.EventHandler(this.UserMessage_Focus2);
@@ -86,6 +87,7 @@
             this.Send.TabIndex = 3;
             this.Send.Text = "Send";
             this.Send.UseVisualStyleBackColor = true;
+            this.Send.Click += new System.EventHandler(this.Send_Click);
             // 
             // listBox1
             // 
@@ -129,12 +131,33 @@
             this.addTopic.Text = "Add a Topic";
             this.addTopic.TextChanged += new System.EventHandler(this.addTopic_TextChanged);
             // 
+            // IPAdress
+            // 
+            this.IPAdress.AccessibleName = "IPAdress";
+            this.IPAdress.Location = new System.Drawing.Point(18, 7);
+            this.IPAdress.Name = "IPAdress";
+            this.IPAdress.Size = new System.Drawing.Size(114, 20);
+            this.IPAdress.TabIndex = 8;
+            this.IPAdress.TextChanged += new System.EventHandler(this.IPAdress_TextChanged);
+            // 
+            // IP
+            // 
+            this.IP.AccessibleName = "IP";
+            this.IP.AutoSize = true;
+            this.IP.Location = new System.Drawing.Point(161, 10);
+            this.IP.Name = "IP";
+            this.IP.Size = new System.Drawing.Size(17, 13);
+            this.IP.TabIndex = 9;
+            this.IP.Text = "IP";
+            // 
             // Form2
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.IP);
+            this.Controls.Add(this.IPAdress);
             this.Controls.Add(this.addTopic);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.listBox1);
@@ -159,5 +182,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.TextBox addTopic;
+        private System.Windows.Forms.TextBox IPAdress;
+        private System.Windows.Forms.Label IP;
     }
 }
