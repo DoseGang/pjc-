@@ -42,9 +42,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(337, 7);
+            this.label1.Location = new System.Drawing.Point(449, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 26);
+            this.label1.Size = new System.Drawing.Size(71, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Logged In\r\n\r\n";
             this.label1.Click += new System.EventHandler(this.label1_);
@@ -54,12 +55,12 @@
             // UserChat
             // 
             this.UserChat.AccessibleName = "UserChat";
-            this.UserChat.Location = new System.Drawing.Point(339, 39);
-            this.UserChat.Margin = new System.Windows.Forms.Padding(2);
+            this.UserChat.Location = new System.Drawing.Point(452, 48);
+            this.UserChat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserChat.Multiline = true;
             this.UserChat.Name = "UserChat";
             this.UserChat.ReadOnly = true;
-            this.UserChat.Size = new System.Drawing.Size(440, 308);
+            this.UserChat.Size = new System.Drawing.Size(585, 378);
             this.UserChat.TabIndex = 1;
             this.UserChat.TextChanged += new System.EventHandler(this.UserChat_TextChanged);
             // 
@@ -67,11 +68,11 @@
             // 
             this.UserMessage.AccessibleName = "UserMessage";
             this.UserMessage.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.UserMessage.Location = new System.Drawing.Point(339, 375);
-            this.UserMessage.Margin = new System.Windows.Forms.Padding(2);
+            this.UserMessage.Location = new System.Drawing.Point(452, 462);
+            this.UserMessage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserMessage.Multiline = true;
             this.UserMessage.Name = "UserMessage";
-            this.UserMessage.Size = new System.Drawing.Size(439, 43);
+            this.UserMessage.Size = new System.Drawing.Size(584, 52);
             this.UserMessage.TabIndex = 2;
             this.UserMessage.TextChanged += new System.EventHandler(this.UserMessage_TextChanged);
             this.UserMessage.Enter += new System.EventHandler(this.UserMessage_Focus);
@@ -80,18 +81,19 @@
             // Send
             // 
             this.Send.AccessibleName = "Send";
-            this.Send.Location = new System.Drawing.Point(688, 422);
-            this.Send.Margin = new System.Windows.Forms.Padding(2);
+            this.Send.Location = new System.Drawing.Point(917, 519);
+            this.Send.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Send.Name = "Send";
-            this.Send.Size = new System.Drawing.Size(88, 23);
+            this.Send.Size = new System.Drawing.Size(117, 28);
             this.Send.TabIndex = 3;
             this.Send.Text = "Send";
             this.Send.UseVisualStyleBackColor = true;
-            this.Send.Click += new System.EventHandler(this.Send_Click);
+            this.Send.Click += new System.EventHandler(this.Send_Click_1);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
             this.listBox1.Items.AddRange(new object[] {
             "Sports",
             "C#",
@@ -99,10 +101,10 @@
             "Internships",
             "Finances",
             "Music"});
-            this.listBox1.Location = new System.Drawing.Point(18, 29);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox1.Location = new System.Drawing.Point(24, 36);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(272, 342);
+            this.listBox1.Size = new System.Drawing.Size(361, 420);
             this.listBox1.TabIndex = 4;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
@@ -111,9 +113,10 @@
             // 
             this.Add.AccessibleDescription = "Add";
             this.Add.AccessibleName = "Add";
-            this.Add.Location = new System.Drawing.Point(134, 394);
+            this.Add.Location = new System.Drawing.Point(179, 485);
+            this.Add.Margin = new System.Windows.Forms.Padding(4);
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(25, 20);
+            this.Add.Size = new System.Drawing.Size(33, 25);
             this.Add.TabIndex = 6;
             this.Add.Text = "+";
             this.Add.UseVisualStyleBackColor = true;
@@ -123,10 +126,11 @@
             // 
             this.addTopic.AccessibleDescription = "addTopic";
             this.addTopic.AccessibleName = "addTopic";
-            this.addTopic.Location = new System.Drawing.Point(18, 394);
+            this.addTopic.Location = new System.Drawing.Point(24, 485);
+            this.addTopic.Margin = new System.Windows.Forms.Padding(4);
             this.addTopic.MaxLength = 15;
             this.addTopic.Name = "addTopic";
-            this.addTopic.Size = new System.Drawing.Size(100, 20);
+            this.addTopic.Size = new System.Drawing.Size(132, 22);
             this.addTopic.TabIndex = 7;
             this.addTopic.Text = "Add a Topic";
             this.addTopic.TextChanged += new System.EventHandler(this.addTopic_TextChanged);
@@ -134,9 +138,10 @@
             // IPAdress
             // 
             this.IPAdress.AccessibleName = "IPAdress";
-            this.IPAdress.Location = new System.Drawing.Point(18, 7);
+            this.IPAdress.Location = new System.Drawing.Point(24, 9);
+            this.IPAdress.Margin = new System.Windows.Forms.Padding(4);
             this.IPAdress.Name = "IPAdress";
-            this.IPAdress.Size = new System.Drawing.Size(114, 20);
+            this.IPAdress.Size = new System.Drawing.Size(151, 22);
             this.IPAdress.TabIndex = 8;
             this.IPAdress.TextChanged += new System.EventHandler(this.IPAdress_TextChanged);
             // 
@@ -144,18 +149,19 @@
             // 
             this.IP.AccessibleName = "IP";
             this.IP.AutoSize = true;
-            this.IP.Location = new System.Drawing.Point(161, 10);
+            this.IP.Location = new System.Drawing.Point(215, 12);
+            this.IP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IP.Name = "IP";
-            this.IP.Size = new System.Drawing.Size(17, 13);
+            this.IP.Size = new System.Drawing.Size(20, 17);
             this.IP.TabIndex = 9;
             this.IP.Text = "IP";
             // 
             // Form2
             // 
             this.AccessibleName = "";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1161, 610);
             this.Controls.Add(this.IP);
             this.Controls.Add(this.IPAdress);
             this.Controls.Add(this.addTopic);
@@ -165,6 +171,7 @@
             this.Controls.Add(this.UserMessage);
             this.Controls.Add(this.UserChat);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Activated += new System.EventHandler(this.label1_);

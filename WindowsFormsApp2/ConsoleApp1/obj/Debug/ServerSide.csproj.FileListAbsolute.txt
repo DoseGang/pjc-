@@ -1,0 +1,9 @@
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\bin\Debug\ServerSide.exe.config
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\bin\Debug\ServerSide.exe
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\bin\Debug\ServerSide.pdb
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\obj\Debug\ServerSide.csprojAssemblyReference.cache
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\obj\Debug\ServerSide.csproj.CoreCompileInputs.cache
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\obj\Debug\ServerSide.exe
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\obj\Debug\ServerSide.pdb
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\obj\Debug\ConsoleApp1.SERV.resources
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\ConsoleApp1\obj\Debug\ServerSide.csproj.GenerateResource.cache

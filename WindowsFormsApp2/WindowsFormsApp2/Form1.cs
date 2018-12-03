@@ -36,10 +36,9 @@ namespace WindowsFormsApp2
             
             if (user.LoginUser(UsernameTyped, PasswordTyped) == true)
             {
-               
-                
-                Form2 k = new Form2();
-                k.MyUser = UsernameTyped;
+
+                Visible = false;
+                Form2 k = new Form2(UsernameTyped);     
                 k.ShowDialog();
                 
                 

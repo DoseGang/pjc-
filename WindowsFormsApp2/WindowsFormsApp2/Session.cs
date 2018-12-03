@@ -18,7 +18,7 @@ namespace WindowsFormsApp2
         List<Tuple<string, string>> Users = new List<Tuple<string, string>>();
         public Session getUser()
         {
-            Stream stream = new FileStream("C:\\Users\\Doseeee\\Desktop\\Accounts.txt", FileMode.Open, FileAccess.Read);
+            Stream stream = new FileStream("C:\\Users\\Dose\\Desktop\\Accounts.txt", FileMode.Open, FileAccess.Read);
             Session user= new Session();
             if (stream.Length != 0)
             {
@@ -34,7 +34,7 @@ namespace WindowsFormsApp2
         {
        
             Users = Users.Distinct().ToList();
-            Stream stream = new FileStream("C:\\Users\\Doseeee\\Desktop\\Accounts.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            Stream stream = new FileStream("C:\\Users\\Dose\\Desktop\\Accounts.txt", FileMode.OpenOrCreate, FileAccess.Write);
             formatter.Serialize(stream, user);
             stream.Close();
         }

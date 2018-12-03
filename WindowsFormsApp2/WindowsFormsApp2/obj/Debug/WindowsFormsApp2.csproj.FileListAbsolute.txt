@@ -14,7 +14,6 @@ C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
-C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form2.resources
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
@@ -31,3 +30,4 @@ C:\Users\Doseeee\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Deb
 C:\Users\Doseeee\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
 C:\Users\Doseeee\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\Doseeee\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form2.resources

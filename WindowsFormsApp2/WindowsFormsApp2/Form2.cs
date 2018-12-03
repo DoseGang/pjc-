@@ -9,30 +9,87 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace WindowsFormsApp2
 {
     public partial class Form2 : Form
     {
-        Socket sck;
-        EndPoint epLocal, epRemote;
+
+        private delegate void DisplayInvoker(string t);
         private string currentTopic = null;
-        public string MyUser { get; set; }
-        public Form2()
+        private StringBuilder msg = new StringBuilder();
+        static public string MyUser { get; set; }
+        static private byte[] buffer = new byte[1024];
+        static IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+        static IPAddress ipAddress = host.AddressList[0];
+        static Client user = new Client(MyUser, ipAddress, 136);
+        public Form2(string User) // when a user is logged in , directly connect him to the server
         {
-            InitializeComponent();
-            sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Tcp);
-            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            IPAdress.Text = GetLocalIP();
-            IPAdress.ReadOnly = true;
-            Initializeconnection();
             
+            InitializeComponent();
+            MyUser = User;        
+            user.clientConnection();
+            Thread readingg = new Thread(reading);
+            readingg.Start();
+            user.sendText(MyUser + ", joined the chatroom!");
+            IPAdress.Text = GetLocalIP(host);
+            IPAdress.ReadOnly = true;
         }
-        private string GetLocalIP()
+        public void reading()
         {
-            IPHostEntry host;
-            host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach(IPAddress ip in host.AddressList)
+            user.getClient().GetStream().BeginRead(buffer, 0, 1024, ReadFlow, null);
+        }
+        private void DisplayText(string t)
+        {
+            UserChat.AppendText(t  +"\n");
+        }
+        private void BuildString(byte[] buffer,int offset, int count)
+        {
+            int intIndex;
+            for(intIndex = offset; intIndex <= (offset + (count - 1)); intIndex++)
+            {
+                if (buffer[intIndex] == 10)
+                {
+                    msg.Append("\n");
+                    object[] @params = { msg.ToString() };
+
+                    this.Invoke(new DisplayInvoker(this.DisplayText),@params);
+                    msg.Length = 0;
+                }
+                else
+                {
+                    msg.Append((char)buffer[intIndex]);
+                }
+            }
+        }
+        private void ReadFlow(IAsyncResult ar)
+        {
+            
+            int intCount;
+           
+            try
+            {
+                intCount = user.getClient().GetStream().EndRead(ar);
+                Console.WriteLine(intCount);
+                if (intCount < 1)
+                {
+                    return;
+                }
+                
+                BuildString(buffer, 0, intCount);
+                
+                user.getClient().GetStream().BeginRead(buffer, 0, 1024, this.ReadFlow, null);
+                
+            }catch(Exception e)
+            {
+                return;
+            }
+        }
+        private string GetLocalIP(IPHostEntry host)
+        {
+       
+            foreach (IPAddress ip in host.AddressList)
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
@@ -41,47 +98,7 @@ namespace WindowsFormsApp2
             }
 
             return "192.168.1.1";
-        }
-        private void Initializeconnection()
-        {
-            try
-            {
-
-                epLocal = new IPEndPoint(IPAddress.Parse(IPAdress.Text),80);
-                sck.Bind(epLocal);
-                epRemote = new IPEndPoint(IPAddress.Parse(IPAdress.Text),81);
-                sck.Connect(epRemote);
-                byte[] buffer = new byte[1500];
-                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-        }
-        private void MessageCallBack(IAsyncResult aResult)
-        {
-            try
-            {
-                int size = sck.EndReceiveFrom(aResult, ref epRemote);
-                if (size > 0)
-                {
-                    byte[] receivedData = new byte[1464];
-                    receivedData = (byte[])aResult.AsyncState;
-                    ASCIIEncoding eEncoding = new ASCIIEncoding();
-                    string receivedMessage = eEncoding.GetString(receivedData);
-                    UserChat.AppendText(receivedMessage + "\n");
-                    
-                }
-                byte[] buffer = new byte[1500];
-                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-            }
-            catch (Exception exp)
-            {
-                MessageBox.Show(exp.ToString());
-            }
-        }
+        } // get your local ip
         private void label1_(object sender, EventArgs e)
         {
             this.Text = "Hello " + MyUser;
@@ -129,22 +146,7 @@ namespace WindowsFormsApp2
         {
 
         }
-        private void Send_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
-                byte[] msg = new byte[1500];
-                msg = enc.GetBytes(MyUser + ": "+ UserMessage.Text +"\n");
-                sck.Send(msg);
-                UserChat.AppendText(MyUser + ":  " + UserMessage.Text +"\n");
-                UserMessage.Clear();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
+       // send msg to the server
         private void UserChat_TextChanged(object sender, EventArgs e)
         {
 
@@ -154,5 +156,10 @@ namespace WindowsFormsApp2
             //Handle event here
             System.Windows.Forms.Application.Exit();
         }
+        private void Send_Click_1(object sender, EventArgs e)
+        {
+            user.sendText(MyUser + ": " + UserMessage.Text +"\n");
+            UserMessage.Text = " ";
+        }//send message
     }
 }
