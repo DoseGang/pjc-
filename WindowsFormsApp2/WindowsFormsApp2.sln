@@ -4,23 +4,53 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form", "WindowsFormsApp2\Form.csproj", "{075FEA4C-9080-439A-9D2D-40E8B2D084DF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E184EC57-25FE-4464-BE6A-02769452D00F} = {E184EC57-25FE-4464-BE6A-02769452D00F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSide", "ConsoleApp1\ServerSide.csproj", "{E184EC57-25FE-4464-BE6A-02769452D00F}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "WindowsFormsApp2", "WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe", "{4E76ECC8-C790-4180-8F36-DA21458A96F2}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+		RemoteMachine = LAPTOP-24E5II15
+		StartingDirectory = C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Debug
+		Environment = Par défaut
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Debug|x86.Build.0 = Debug|Any CPU
 		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Release|x86.ActiveCfg = Release|Any CPU
+		{075FEA4C-9080-439A-9D2D-40E8B2D084DF}.Release|x86.Build.0 = Release|Any CPU
 		{E184EC57-25FE-4464-BE6A-02769452D00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E184EC57-25FE-4464-BE6A-02769452D00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E184EC57-25FE-4464-BE6A-02769452D00F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E184EC57-25FE-4464-BE6A-02769452D00F}.Debug|x86.Build.0 = Debug|Any CPU
 		{E184EC57-25FE-4464-BE6A-02769452D00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E184EC57-25FE-4464-BE6A-02769452D00F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E184EC57-25FE-4464-BE6A-02769452D00F}.Release|x86.ActiveCfg = Release|Any CPU
+		{E184EC57-25FE-4464-BE6A-02769452D00F}.Release|x86.Build.0 = Release|Any CPU
+		{4E76ECC8-C790-4180-8F36-DA21458A96F2}.Debug|Any CPU.ActiveCfg = Release|x86
+		{4E76ECC8-C790-4180-8F36-DA21458A96F2}.Debug|x86.ActiveCfg = Release|x86
+		{4E76ECC8-C790-4180-8F36-DA21458A96F2}.Release|Any CPU.ActiveCfg = Release|x86
+		{4E76ECC8-C790-4180-8F36-DA21458A96F2}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

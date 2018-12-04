@@ -1,0 +1,13 @@
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Release\WindowsFormsApp2.exe.config
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Release\WindowsFormsApp2.exe
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Release\WindowsFormsApp2.pdb
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Release\System.dll
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\Form.csprojAssemblyReference.cache
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\WindowsFormsApp2.Form1.resources
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\WindowsFormsApp2.Form2.resources
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\Form.csproj.GenerateResource.cache
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\Form.csproj.CoreCompileInputs.cache
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\Form.csproj.CopyComplete
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\WindowsFormsApp2.exe
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Release\WindowsFormsApp2.pdb

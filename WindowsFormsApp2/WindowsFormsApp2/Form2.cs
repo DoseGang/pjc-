@@ -32,17 +32,19 @@ namespace WindowsFormsApp2
             user.clientConnection();
             Thread readingg = new Thread(reading);
             readingg.Start();
-            user.sendText(MyUser + ", joined the chatroom!");
+            user.sendText(MyUser + " joined the chatroom!" +"\n");
             IPAdress.Text = GetLocalIP(host);
             IPAdress.ReadOnly = true;
         }
         public void reading()
         {
             user.getClient().GetStream().BeginRead(buffer, 0, 1024, ReadFlow, null);
+            Console.WriteLine(MyUser + "received a message");
         }
         private void DisplayText(string t)
         {
-            UserChat.AppendText(t  +"\n");
+            UserChat.AppendText(t);
+            
         }
         private void BuildString(byte[] buffer,int offset, int count)
         {
@@ -54,7 +56,7 @@ namespace WindowsFormsApp2
                     msg.Append("\n");
                     object[] @params = { msg.ToString() };
 
-                    this.Invoke(new DisplayInvoker(this.DisplayText),@params);
+                    Invoke(new DisplayInvoker(this.DisplayText),@params);
                     msg.Length = 0;
                 }
                 else
@@ -70,13 +72,14 @@ namespace WindowsFormsApp2
            
             try
             {
+                
                 intCount = user.getClient().GetStream().EndRead(ar);
                 Console.WriteLine(intCount);
                 if (intCount < 1)
                 {
                     return;
                 }
-                
+                Console.WriteLine(MyUser + "received a message");
                 BuildString(buffer, 0, intCount);
                 
                 user.getClient().GetStream().BeginRead(buffer, 0, 1024, this.ReadFlow, null);

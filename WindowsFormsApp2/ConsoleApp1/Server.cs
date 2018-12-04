@@ -19,22 +19,26 @@ namespace ServerSide
         private int port;
         private byte[] buffer = new byte[1024];
         public delegate void DisplayInvoker(string t);
-        private StringBuilder msgServ = new StringBuilder();
-        private TcpListener serv;
+        private StringBuilder msgclient = new StringBuilder();
+        private TcpListener client;
         static IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
         private IPAddress ipAddress = host.AddressList[0];
-        private TcpClient myServer;
+        private TcpClient myclient;
         private List<TcpClient> usersConnected = new List<TcpClient>();
+        
+        
+
         public Server(int port)
         {
             this.port = port;
-         
+            
+
         }
 
         public void startServer()
         {
-            serv = new TcpListener(this.ipAddress, port);
-            serv.Start();
+            client = new TcpListener(this.ipAddress, port);
+            client.Start();
             SERV a = new SERV();
             a.Visible = true;
             a.textBox1.AppendText("Waiting for a new connection...");
@@ -42,12 +46,11 @@ namespace ServerSide
 
             while (true)
             {
-                this.myServer = serv.AcceptTcpClient();
-                usersConnected.Add(myServer);
-                a.textBox1.AppendText("New User connected @" + myServer.GetType());
-
-                myServer.GetStream().BeginRead(buffer, 0, 1024, Receive, null);
-
+                myclient = client.AcceptTcpClient();
+                usersConnected.Add(myclient);
+                a.textBox1.AppendText("New User connected @" + myclient.GetType());
+                myclient.GetStream().BeginRead(buffer, 0, 1024, Receive, null);
+                a.textBox1.AppendText("Size of List " + usersConnected.Count);
 
             }
         }
@@ -58,8 +61,8 @@ namespace ServerSide
 
             try
             {
-                lock (myServer.GetStream())
-                    intCount = myServer.GetStream().EndRead(ar);
+                lock (myclient.GetStream())
+                    intCount = myclient.GetStream().EndRead(ar);
                 if (intCount < 1)
                 {
                   
@@ -68,8 +71,8 @@ namespace ServerSide
                 Console.WriteLine("MESSAGE RECEIVED " + intCount);
                 BuildString(buffer, 0, intCount);
 
-                lock (myServer.GetStream())
-                    myServer.GetStream().BeginRead(buffer, 0, 1024, Receive, null);
+                lock (myclient.GetStream())
+                    myclient.GetStream().BeginRead(buffer, 0, 1024, Receive, null);
             }
             catch (Exception e)
             {
@@ -78,9 +81,9 @@ namespace ServerSide
         }
         public void Send(string Data)
         {
-            lock (myServer.GetStream())
+            lock (myclient.GetStream())
             {
-                System.IO.StreamWriter w = new System.IO.StreamWriter(myServer.GetStream());
+                System.IO.StreamWriter w = new System.IO.StreamWriter(myclient.GetStream());
                 w.Write(Data);
                 w.Flush();
             }
@@ -90,21 +93,23 @@ namespace ServerSide
             int intIndex;
             for (intIndex = offset; intIndex <= (offset + (count - 1)); intIndex++)
             {
-                    msgServ.Append((char)buffer[intIndex]);
+                    msgclient.Append((char)buffer[intIndex]);
             }
               
             
-            OnLineReceived(msgServ.ToString());
-            msgServ.Length = 0;
+            OnLineReceived(msgclient.ToString());
+            msgclient.Length = 0;
             
         }
         private void OnLineReceived(string Data)
         {
+            int i = 0;
            
             foreach (TcpClient objClient in usersConnected)
             {
-                Console.WriteLine("Sending " + Data + " to " + objClient);
+                Console.WriteLine("Sending " + Data + " to " + objClient + i);
                 Send(Data);
+                i++;
             }
         }
 

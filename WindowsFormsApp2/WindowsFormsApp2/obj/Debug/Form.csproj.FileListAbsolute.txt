@@ -9,3 +9,5 @@ C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
 C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\Form.csprojAssemblyReference.cache
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\System.dll
+C:\Users\Dose\Documents\GitHub\pjc-\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\Form.csproj.CopyComplete
