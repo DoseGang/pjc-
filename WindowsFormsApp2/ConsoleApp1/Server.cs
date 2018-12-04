@@ -23,7 +23,6 @@ namespace ServerSide
         private TcpListener client;
         static IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
         private IPAddress ipAddress = host.AddressList[0];
-        private TcpClient myclient;
         private List<TcpClient> usersConnected = new List<TcpClient>();
         
         
@@ -37,20 +36,20 @@ namespace ServerSide
 
         public void startServer()
         {
-            client = new TcpListener(this.ipAddress, port);
+            client = new TcpListener(ipAddress, port);
             client.Start();
             SERV a = new SERV();
             a.Visible = true;
-            a.textBox1.AppendText("Waiting for a new connection...");
-            Console.WriteLine("Waiting for a new connection...");
+            a.textBox1.AppendText("Waiting for a new connection..." + "\n");
+            
 
             while (true)
             {
-                myclient = client.AcceptTcpClient();
-                usersConnected.Add(myclient);
-                a.textBox1.AppendText("New User connected @" + myclient.GetType());
-                myclient.GetStream().BeginRead(buffer, 0, 1024, Receive, null);
-                a.textBox1.AppendText("Size of List " + usersConnected.Count);
+                TcpClient objClient = client.AcceptTcpClient();
+                usersConnected.Add(objClient);
+                a.textBox1.AppendText("New User connected @" + objClient.ToString()+"\n" );
+                objClient.GetStream().BeginRead(buffer, 0, 1024, Receive, objClient);
+                a.textBox1.AppendText("Size of List " + usersConnected.Count + "\n");
 
             }
         }
@@ -58,32 +57,34 @@ namespace ServerSide
         private void Receive(IAsyncResult ar)
         {
             int intCount;
-
+            TcpClient objclient = (TcpClient) ar.AsyncState;
             try
             {
-                lock (myclient.GetStream())
-                    intCount = myclient.GetStream().EndRead(ar);
+                Console.WriteLine("CLIENT VALUE" + objclient +"\n");
+                lock (objclient.GetStream())
+                    intCount = objclient.GetStream().EndRead(ar);
                 if (intCount < 1)
                 {
                   
                     return;
                 }
-                Console.WriteLine("MESSAGE RECEIVED " + intCount);
+
                 BuildString(buffer, 0, intCount);
 
-                lock (myclient.GetStream())
-                    myclient.GetStream().BeginRead(buffer, 0, 1024, Receive, null);
+                lock (objclient.GetStream())
+                    objclient.GetStream().BeginRead(buffer, 0, 1024, Receive, objclient);
             }
             catch (Exception e)
             {
+                Console.WriteLine("ERROR IN RECEIVE" + e);
                 return;
             }
         }
-        public void Send(string Data)
+        public void Send(string Data, TcpClient a)
         {
-            lock (myclient.GetStream())
+            lock (a.GetStream())
             {
-                System.IO.StreamWriter w = new System.IO.StreamWriter(myclient.GetStream());
+                StreamWriter w = new StreamWriter(a.GetStream());
                 w.Write(Data);
                 w.Flush();
             }
@@ -108,7 +109,7 @@ namespace ServerSide
             foreach (TcpClient objClient in usersConnected)
             {
                 Console.WriteLine("Sending " + Data + " to " + objClient + i);
-                Send(Data);
+                Send(Data,objClient);
                 i++;
             }
         }

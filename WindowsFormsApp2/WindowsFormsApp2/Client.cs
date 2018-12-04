@@ -32,7 +32,11 @@ namespace WindowsFormsApp2
         }
         public TcpClient getClient()
         {
-            return this.client;
+            return client;
+        }
+        public string getClientUsername()
+        {
+            return ClientName;
         }
         public void sendText(string message)
         {

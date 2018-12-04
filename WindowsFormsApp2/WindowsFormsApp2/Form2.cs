@@ -39,12 +39,13 @@ namespace WindowsFormsApp2
         public void reading()
         {
             user.getClient().GetStream().BeginRead(buffer, 0, 1024, ReadFlow, null);
-            Console.WriteLine(MyUser + "received a message");
+            Console.WriteLine("READING FUNCTION TRIGGERED FOR "+MyUser);
         }
         private void DisplayText(string t)
         {
             UserChat.AppendText(t);
-            
+            Console.WriteLine("DISPLAY FUNCTION TRIGGERED FOR " + MyUser + "with " +msg.ToString());
+
         }
         private void BuildString(byte[] buffer,int offset, int count)
         {
@@ -55,8 +56,8 @@ namespace WindowsFormsApp2
                 {
                     msg.Append("\n");
                     object[] @params = { msg.ToString() };
-
-                    Invoke(new DisplayInvoker(this.DisplayText),@params);
+                    Console.WriteLine("BUILDSTIRNG FUNCTION TRIGGERED FOR " + MyUser);
+                    Invoke(new DisplayInvoker(DisplayText),@params);
                     msg.Length = 0;
                 }
                 else
