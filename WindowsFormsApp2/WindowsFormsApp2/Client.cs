@@ -26,7 +26,7 @@ namespace WindowsFormsApp2
 
         public void clientConnection()
         {
-            this.client = new TcpClient(hostName.ToString(), port);
+            client = new TcpClient(hostName.ToString(), port);
             
 
         }

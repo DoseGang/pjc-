@@ -38,7 +38,7 @@ namespace ServerSide
         {
             client = new TcpListener(ipAddress, port);
             client.Start();
-            SERV a = new SERV();
+            SERV a = new SERV(); // form ini
             a.Visible = true;
             a.textBox1.AppendText("Waiting for a new connection..." + "\n");
             
@@ -48,7 +48,7 @@ namespace ServerSide
                 TcpClient objClient = client.AcceptTcpClient();
                 usersConnected.Add(objClient);
                 a.textBox1.AppendText("New User connected @" + objClient.ToString()+"\n" );
-                objClient.GetStream().BeginRead(buffer, 0, 1024, Receive, objClient);
+                objClient.GetStream().BeginRead(buffer, 0, 1024, Receive, objClient); // same as client part
                 a.textBox1.AppendText("Size of List " + usersConnected.Count + "\n");
 
             }
@@ -60,7 +60,12 @@ namespace ServerSide
             TcpClient objclient = (TcpClient) ar.AsyncState;
             try
             {
-                Console.WriteLine("CLIENT VALUE" + objclient +"\n");
+                //SyncLock blocks. 
+                //The SyncLock statement is used for thread synchronization to ensure
+                //that two threads don't attempt to use the same object at the same time. 
+                //. While a lock is held, the thread that holds the lock can again acquire and release the lock.
+                //Any other thread is blocked from acquiring the lock and waits until the lock is released.
+
                 lock (objclient.GetStream())
                     intCount = objclient.GetStream().EndRead(ar);
                 if (intCount < 1)
@@ -95,6 +100,7 @@ namespace ServerSide
             for (intIndex = offset; intIndex <= (offset + (count - 1)); intIndex++)
             {
                     msgclient.Append((char)buffer[intIndex]);
+               
             }
               
             
@@ -106,7 +112,8 @@ namespace ServerSide
         {
             int i = 0;
            
-            foreach (TcpClient objClient in usersConnected)
+            foreach (TcpClient objClient in usersConnected) //for each client in my list 
+                //write data in each client stream
             {
                 Console.WriteLine("Sending " + Data + " to " + objClient + i);
                 Send(Data,objClient);
